@@ -29,7 +29,7 @@
                 </p>
             </two>
             <three id="3">
-                <form name = "Form3" id = "Form3">
+                <form name = "Form3">
                     <input name = "Line" size=auto>
                     <input type = "button" value = "Send" onClick = "Save1();">
                 </form>
@@ -74,32 +74,7 @@
                 document.addEventListener('DOMContentLoaded', () => {
                 makeEditableBlock('2');
                 initEditableBlocks();
-                if (performance.navigation.type == 1) {
-                    if(checkCookie('maxNumber')){
-                        if(window.confirm(`Some Cookies have been created on this page: \n${document.cookie} \n Do you want to save them?`)) 
-                            alert('Cookies were saved, now the page will be refreshed.');
-                        else{
-                                setCookie('maxNumber', '');
-                            } 
-                    }
-                }
-                if(checkCookie('maxNumber')) document.getElementById("#Form3").remove();
                 })
-
-                const setCookie = (name, data, expDays) => {
-                    const d = new Date();
-                    d.setDate(d.getDate() + expDays);
-                    document.cookie = `${name}=${data};expires=${d.toUTCString()};path=/`;
-                }
-    
-                const checkCookie = (name) => {
-                    return (document.cookie.includes(name) && !document.cookie.includes(`${name}=;`));
-                }
-    
-                const getCookie = (name) => {
-                    return checkCookie(name) ? document.cookie.split(';').find((c) => c.includes(name)).split('=')[1] : 0;
-                }
-
                 //task_1
                 var bl4 = document.getElementById("4");
                 var bl5 = document.getElementById("5");
@@ -148,34 +123,28 @@
                 }
                 }
                 }
-                /*var el = document.getElementById("SIx");
-                var raz = document.getElementsByName('raz');
-                for (var i = 0; i < raz.length; i++) 
+
+                function deleteAllCookies()
                 {
-                    raz[i].onclick = function()
-                    {
-                    localStorage.setItem('IRadioRaz', this.value);
-                    if(this.value == 1)
-                    {
-                        el.style.fontWeight = "normal";
-                    }
-                    if(this.value == 2)
-                    {
-                        el.style.fontWeight = "bold";    
-                    }
+                    var cookies = document.cookie.split(";");
+                    for (var i = 0; i < cookies.length; i++) {
+                        var cookie = cookies[i];
+                        var eqPos = cookie.indexOf("=");
+                        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+                        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
                     }
                 }
-                if(localStorage.getItem('IRadioRaz'))
-                {
-                    var IRadioRaz = localStorage.getItem('IRadioRaz');
-                    document.querySelector('input[name="raz"][value="' + IRadioRaz + '"]').setAttribute('checked','checked');
-                }
-                    if(localStorage.getItem('IRadioRaz') == null)
-                    {
-                        localStorage.setItem('IRadioRaz',2);}
-                    else if(localStorage.getItem('IRadioRaz') == 1) {document.querySelector('#SIx').style.fontWeight = 'normal';}
-                    else {document.querySelector('#SIx').style.fontWeight = 'bold';}   
-                    */
+                function Load_Converted_Number(){
+                    document.cookie.split(';').map(item => {
+                        if (item.includes('Num=')) {
+                            if (window.confirm('Converted number from cookies= ' + item.substring(item.indexOf('=') + 1, item.length) + '\nCookies will be deleted after pressing "Ok" button!'))
+                            {
+                                deleteAllCookies();
+                                alert("Cookies were deleted!");
+                            }
+                        }
+                    });
+                }    
                 //task_3
                 function Save1()
                 {
@@ -189,12 +158,10 @@
                         t++;
                     }
                 }
-                /*let date = new Date(Date.now() + 86400e3);
-                date = date.toUTCString();*/
+                let date = new Date(Date.now() + 86400e3);
+                date = date.toUTCString();
                 alert(q+" ---> "+t);
-                setCookie("Max",t,2);
-               /* document.cookie = "Num =" + t + "; expires=" + date + "; path=/";
-                alert(document.cookie);*/
+                document.cookie = "Num =" + t + "; expires=" + date + "; path=/";
                 }
                 
                 //task_6
