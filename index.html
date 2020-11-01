@@ -86,6 +86,20 @@
                 if(checkCookie('maxNumber')) document.getElementById("#Form3").remove();
                 })
 
+                const setCookie = (name, data, expDays) => {
+                    const d = new Date();
+                    d.setDate(d.getDate() + expDays);
+                    document.cookie = `${name}=${data};expires=${d.toUTCString()};path=/`;
+                }
+    
+                const checkCookie = (name) => {
+                    return (document.cookie.includes(name) && !document.cookie.includes(`${name}=;`));
+                }
+    
+                const getCookie = (name) => {
+                    return checkCookie(name) ? document.cookie.split(';').find((c) => c.includes(name)).split('=')[1] : 0;
+                }
+
                 //task_1
                 var bl4 = document.getElementById("4");
                 var bl5 = document.getElementById("5");
@@ -175,11 +189,12 @@
                         t++;
                     }
                 }
-                let date = new Date(Date.now() + 86400e3);
-                date = date.toUTCString();
+                /*let date = new Date(Date.now() + 86400e3);
+                date = date.toUTCString();*/
                 alert(q+" ---> "+t);
-                document.cookie = "Num =" + t + "; expires=" + date + "; path=/";
-                alert(document.cookie);
+                setCookie("Max",t,2);
+               /* document.cookie = "Num =" + t + "; expires=" + date + "; path=/";
+                alert(document.cookie);*/
                 }
                 
                 //task_6
