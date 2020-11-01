@@ -29,7 +29,7 @@
                 </p>
             </two>
             <three id="3">
-                <form name = "Form3">
+                <form name = "Form3" id = "Form3">
                     <input name = "Line" size=auto>
                     <input type = "button" value = "Send" onClick = "Save1();">
                 </form>
@@ -124,18 +124,7 @@
                 document.querySelector('#SIx').style.fontWeight = 'bold';
                 }
                 }
-                }
-
-                function deleteAllCookies()
-                {
-                    var cookies = document.cookie.split(";");
-                    for (var i = 0; i < cookies.length; i++) {
-                        var cookie = cookies[i];
-                        var eqPos = cookie.indexOf("=");
-                        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-                        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-                    }
-                }    
+                }  
                 //task_3
                 function deleteAllCookies() {
                     var cookies = document.cookie.split(";");
@@ -147,7 +136,8 @@
                         document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
                     }
                 }
-                function Save(){
+                function Save1()
+                {
                     var Data = document.Form.Line.value;
                 
                     a = new Array(10);
@@ -164,12 +154,12 @@
                     document.cookie="Number= "+ t;
                 
                 }
-                
+
                 if(document.cookie.includes('Number=')){
                     alert(document.cookie);
                     alert("Cookies will be deleted permanently");
                     deleteAllCookies();
-                    document.getElementById('FF').remove();
+                    document.getElementById('Form3').remove();
                 }
                 
                 //task_6
