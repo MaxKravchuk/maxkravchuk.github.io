@@ -72,17 +72,18 @@
             <blank3></blank3>
             <script>
                 document.addEventListener('DOMContentLoaded', () => {
-                function Load_Converted_Number(){
-                    document.cookie.split(';').map(item => {
-                        if (item.includes('Num=')) {
-                            if (window.confirm('Converted number from cookies= ' + item.substring(item.indexOf('=') + 1, item.length) + '\nCookies will be deleted after pressing "Ok" button!'))
-                            {
-                                deleteAllCookies();
-                                alert("Cookies were deleted!");
-                            }
-                        }
-                    });
+                if (performance.navigation.type == 1) {
+                    if(checkCookie('maxNumber')){
+                        if(window.confirm(`Some Cookies have been created on this page: \n${document.cookie} \n Do you want to save them?`)) 
+                            alert('Cookies were saved, now the page will be refreshed.');
+                        else{
+                                setCookie('maxNumber', '');
+                            } 
+                    }
                 }
+
+                if(checkCookie('maxNumber')) document.getElementById("#Form3").remove();
+
                 makeEditableBlock('2');
                 initEditableBlocks();
                 })
