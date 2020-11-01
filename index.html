@@ -72,6 +72,17 @@
             <blank3></blank3>
             <script>
                 document.addEventListener('DOMContentLoaded', () => {
+                function Load_Converted_Number(){
+                    document.cookie.split(';').map(item => {
+                        if (item.includes('Num=')) {
+                            if (window.confirm('Converted number from cookies= ' + item.substring(item.indexOf('=') + 1, item.length) + '\nCookies will be deleted after pressing "Ok" button!'))
+                            {
+                                deleteAllCookies();
+                                alert("Cookies were deleted!");
+                            }
+                        }
+                    });
+                }
                 makeEditableBlock('2');
                 initEditableBlocks();
                 })
@@ -133,17 +144,6 @@
                         var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
                         document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
                     }
-                }
-                function Load_Converted_Number(){
-                    document.cookie.split(';').map(item => {
-                        if (item.includes('Num=')) {
-                            if (window.confirm('Converted number from cookies= ' + item.substring(item.indexOf('=') + 1, item.length) + '\nCookies will be deleted after pressing "Ok" button!'))
-                            {
-                                deleteAllCookies();
-                                alert("Cookies were deleted!");
-                            }
-                        }
-                    });
                 }    
                 //task_3
                 function Save1()
