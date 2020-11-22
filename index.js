@@ -84,7 +84,13 @@ function task_3()
     {
         let url = "https://api.github.com/repos/" + area_1.value + "/" + area_2.value + "/commits";
         Get_Commits(url);
-    }   
+    }
+    
+    B3.onclick = () =>
+    {
+        Git_Resp_1.value="";
+        Git_Resp_1.style.background = "white";
+    }
 }
 
 function m_C(cb_1,cb_2)
