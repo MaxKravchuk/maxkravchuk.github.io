@@ -46,10 +46,8 @@
     text-align: right;
     background-color:#6EB5C0;
     grid-area: 2/5/4/6;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;  
+    padding: 10px;
+    text-align: center;
 }
 
 .container five
@@ -96,6 +94,11 @@
 .container blank3
 {
     grid-area: 4/6/5/7;   
+}
+
+.container #Git_Resp_1
+{
+    width: 100%;
 }
 
 x

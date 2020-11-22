@@ -1,129 +1,168 @@
-//task_1
-var bl4 = document.getElementById("4");
-var bl5 = document.getElementById("5");
-var temp = bl4.innerHTML;
-bl4.innerHTML = bl5.innerHTML;
-bl5.innerHTML = temp;
-
-//task_2
-function fucn_task_2(a,b,c)
-{
-    p = (a+b+c)/2;
-    S = Math.floor(Math.sqrt(p*(p-a)*(p-b)*(p-c)));
-    return S;
+function task_1(){
+    let one = document.querySelector("top").innerHTML;
+    let two = document.querySelector("two").innerHTML;
+    let three = document.querySelector("three").innerHTML;
+    let four = document.querySelector("four").innerHTML;
+    let five = document.querySelector("five").innerHTML;
+    let six = document.querySelector("six").innerHTML;
+    setTimeout(function(){
+        document.querySelector("five").innerHTML = six;
+        setTimeout(function(){
+            document.querySelector("four").innerHTML = five;
+            setTimeout(function(){
+                document.querySelector("three").innerHTML = four;
+                setTimeout(function(){
+                    document.querySelector("two").innerHTML = three;
+                    setTimeout(function(){
+                        document.querySelector("top").innerHTML = two;
+                        setTimeout(function(){
+                            document.querySelector("six").innerHTML = one;
+                        }, 5000);
+                    }, 5000);
+                }, 5000);
+            }, 5000);
+        }, 5000);
+    }, 5000);
 }
-var a = 4, b = 3, c = 5;
-var bl3 = document.getElementById("3");
-bl3.innerHTML = bl3.innerHTML + fucn_task_2(a,b,c);
 
-//task_3
-function deleteAllCookies() {
-    var cookies = document.cookie.split(";");
+function task_2()
+{
+    document.getElementById("x").addEventListener("scroll",funcScroll);
+    function funcScroll()
+    { 
+        document.querySelector("#First").style.fontStyle='italic';
+        document.querySelector("#Six").style.fontStyle='italic';
 
-    for (var i = 0; i < cookies.length; i++) {
-        var cookie = cookies[i];
-        var eqPos = cookie.indexOf("=");
-        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        setInterval(function()
+        {
+            if(document.querySelector("#four").style.fontStyle=='italic')
+            {     
+                document.querySelector("#four").style.fontStyle='normal';
+            }
+            else
+            {   
+                document.querySelector("#four").style.fontStyle='italic';
+            }
+        },3000)
     }
 }
 
-function Save1()
+function Get_Commits(url)
 {
-    var Data = document.Form3.Line.value;
-    
-    a = new Array(10);
-    a = Data.split(' ');
-    
-    var q = Math.max(...a);
-    var t =0;
-    for(i = 0; i<10;i++){
-        if(a[i]==q){
-                t++;
-        }
-    }
-    alert("Number of maximum " + q + " elements ==> "+ t);
-    document.cookie="Number of maximum " + q + " elements ==> "+ t;
-    
-}
-
-if(document.cookie.includes('Number of'))
-{
-    alert(document.cookie);
-    alert("Cookies will be deleted permanently");
-    deleteAllCookies();
-    document.getElementById('Form3ID').remove();
-}
-
-//task_4
-if(window.localStorage)
-{
-    if(localStorage.getItem('check') == null)
+    fetch(url).then((response) => 
     {
-        localStorage.setItem('check',0);
-    }
-        else if(localStorage.getItem('check') == 0)
+        if (!response.ok)
         {
-            document.querySelector('#Six').style.fontWeight = 'normal';
+            Git_Resp_1.style.background = "red";
+            Git_Resp_1.style.textAling = "center";
+            Git_Resp_1.style.height = "50px";
+            Git_Resp_1.style.border = "2 px solid black";
+            Git_Resp_1.innerHTML = response.status + "-" + response.statusText;
+            throw new Error(response.message);
         }
-        else
-        {
-            document.querySelector('#Six').style.fontWeight = 'bold';
-        }
-}   
-else alert(" localStorage cant be used");
-{
-    function clickMeBold()
+        return response.json();
+    })
+    .then((contents) => 
     {
-        if (document.querySelector('#normal').checked === true)
+        let answ = "";
+        contents.forEach((i) => {
+            answ += `${i.commit.author.name} : ${i.commit.message}\n`;
+        });
+        Git_Resp_1.style.background = "green";
+        Git_Resp_1.style.textAling = "center";
+        Git_Resp_1.style.height = "50px";
+        Git_Resp_1.style.border = "2 px solid black";
+        Git_Resp_1.innerHTML = answ;
+        throw new Error(response.message);
+    })
+    .catch((Error) => {});
+}
+
+function task_3()
+{
+    B1.onclick = () =>
+    {
+        let url = "https://api.github.com/repos/" + area_1.value + "/" + area_2.value + "/commits";
+        Get_Commits(url);
+    }   
+}
+
+function m_C(cb_1,cb_2)
+{
+    console.log("1");
+    cb_1(cb_2);
+}
+
+function f_C(cb_2)
+{
+    console.log("2");
+    cb_2();
+}
+
+function s_C()
+{
+    console.log("3");
+}
+
+function task_4(c_main, cb_1, cb_2)
+{
+    c_main(cb_1,cb_2);
+}
+
+let Sort = (arr) =>
+{
+    let l = arr.length;
+    for(let i = 0; i < l; i++)
+    {
+        let min = i;
+        for(let j = i+1; j< l; j++)
         {
-            localStorage.setItem('check',0);
-            document.querySelector('#Six').style.fontWeight = 'normal';
+            if(arr[min]>arr[j])
+            {
+                min = j;
+            }
         }
-        if (document.querySelector('#normal').checked === false)
+        if (min !== 1)
         {
-            localStorage.setItem('check',1);
-            document.querySelector('#Six').style.fontWeight = 'bold';
+            let tmp = arr[i];
+            arr[i] = arr[min];
+            arr[min] = tmp;
         }
     }
-}  
+    return arr;
+}
 
-//task_5
-document.getElementById("x").addEventListener("scroll",func);
-function func()
+function task_5()
 {
-    alert("Stop scrolling");
+    const reg = /^\d+$/;
+    B2.onclick = () =>
+    {
+        arr = SortArea.value.split(" ");
+        let it = arr.length;
+        for(let i = 0; i < it; i++)
+        {
+            for(let j = 0; j < arr.length; j++)
+            {
+                if (!reg.test(arr[j]))
+                {
+                    arr.splice(j,1);
+                    break;
+                }
+            }
+        }
+        for(var i = 0; i < arr.length; i++)
+        {
+            arr[i] = parseInt(arr[i]);
+        }
+        arr = Sort(arr);
+        alert(arr);
+        SortArea.value = "";
+    }
 }
-    
-//task_6
-document.addEventListener('DOMContentLoaded', () => {
 
-    makeEditableBlock('2');
-    initEditableBlocks();
-
-    })
-
-const initEditableBlocks = () => {
-    Array.from(document.getElementsByClassName('editArea')).map((area) => {
-        area.addEventListener('change', (event) => {
-        const newContent = event.target.value;
-        localStorage.setItem(`${event.target.parentNode.id}Content`, newContent);
-        event.target.parentNode.children[0].innerHTML = newContent;
-        })
-    })
-    Array.from(document.getElementsByClassName('editBtn')).map((btn) => {
-        btn.addEventListener('click', (event) => {
-        localStorage.removeItem(`${event.target.parentNode.id}Content`);
-        document.location.reload();
-        })
-    })
-}
-const makeEditableBlock = (blockId) => {
-    const content = localStorage.getItem(`${blockId}Content`) ? 
-    localStorage.getItem(`${blockId}Content`) : 
-    document.getElementById(blockId).innerHTML;
-    document.getElementById(blockId).innerHTML = content;
-    document.getElementById(blockId).insertAdjacentHTML('beforeend', 
-    `<textarea class="editArea">${content}</textarea>
-    <button type="submit" class="editBtn">Return default</button>`)
-}
+////
+//task_1();
+task_2();
+task_3();
+task_4(m_C, f_C, s_C);
+task_5();
