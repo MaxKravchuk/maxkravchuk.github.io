@@ -17,47 +17,53 @@ function task_1(){
                         document.querySelector("top").innerHTML = two;
                         setTimeout(function(){
                             document.querySelector("six").innerHTML = one;
-                        }, 5000);
-                    }, 5000);
-                }, 5000);
-            }, 5000);
-        }, 5000);
-    }, 5000);
+                        }, 3000);
+                    }, 3000);
+                }, 3000);
+            }, 3000);
+        }, 3000);
+    }, 3000);
 }
 
 function task_2()
 {
     document.getElementById("x").addEventListener("scroll",funcScroll);
     function funcScroll()
-    { 
-        document.querySelector("#First").style.fontStyle='italic';
-        document.querySelector("#Six").style.fontStyle='italic';
-
-        setInterval(function()
-        {
-            if(document.querySelector("#four").style.fontStyle=='italic')
-            {     
-                document.querySelector("#four").style.fontStyle='normal';
-            }
-            else
-            {   
-                document.querySelector("#four").style.fontStyle='italic';
-            }
-        },3000)
+    {
+        setTimeout
+        (
+            function()
+            {
+                document.querySelector("#First").style.fontStyle='italic';
+                document.querySelector("#Six").style.fontStyle='italic';
+    
+                setInterval(function()
+                {
+                    if(document.querySelector("#four").style.fontStyle=='italic')
+                    {     
+                        document.querySelector("#four").style.fontStyle='normal';
+                    }
+                    else
+                    {   
+                        document.querySelector("#four").style.fontStyle='italic';
+                    }
+                },3000)
+            },3000
+        ) 
     }
 }
 
-function Get_Commits(url)
+function F_Commit(url)
 {
     fetch(url).then((response) => 
     {
         if (!response.ok)
         {
-            Git_Resp_1.style.background = "red";
-            Git_Resp_1.style.textAling = "center";
-            Git_Resp_1.style.height = "50px";
-            Git_Resp_1.style.border = "2 px solid black";
-            Git_Resp_1.innerHTML = response.status + "-" + response.statusText;
+            ShowBlock.style.background = "red";
+            ShowBlock.style.textAling = "center";
+            ShowBlock.style.height = "50px";
+            ShowBlock.style.border = "2 px solid black";
+            ShowBlock.innerHTML = response.status + "-" + response.statusText;
             throw new Error(response.message);
         }
         return response.json();
@@ -68,11 +74,11 @@ function Get_Commits(url)
         contents.forEach((i) => {
             answ += `${i.commit.author.name} : ${i.commit.message}\n`;
         });
-        Git_Resp_1.style.background = "green";
-        Git_Resp_1.style.textAling = "center";
-        Git_Resp_1.style.height = "50px";
-        Git_Resp_1.style.border = "2 px solid black";
-        Git_Resp_1.innerHTML = answ;
+        ShowBlock.style.background = "green";
+        ShowBlock.style.textAling = "center";
+        ShowBlock.style.height = "50px";
+        ShowBlock.style.border = "2 px solid black";
+        ShowBlock.innerHTML = answ;
         throw new Error(response.message);
     })
     .catch((Error) => {});
@@ -82,14 +88,14 @@ function task_3()
 {
     B1.onclick = () =>
     {
-        let url = "https://api.github.com/repos/" + area_1.value + "/" + area_2.value + "/commits";
-        Get_Commits(url);
+        let url = "https://api.github.com/repos/" + area_Name.value + "/" + area_Rep.value + "/commits";
+        F_Commit(url);
     }
     
     B3.onclick = () =>
     {
-        Git_Resp_1.value="";
-        Git_Resp_1.style.background = "white";
+        ShowBlock.innerText = "";
+        ShowBlock.style.background = "#6EB5C0";
     }
 }
 
@@ -141,7 +147,7 @@ let Sort = (arr) =>
 function task_5()
 {
     const reg = /^\d+$/;
-    B2.onclick = () =>
+    B_Sort.onclick = () =>
     {
         arr = SortArea.value.split(" ");
         let it = arr.length;

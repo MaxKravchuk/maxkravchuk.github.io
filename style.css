@@ -21,32 +21,67 @@
 
 .container two
 {
-    padding: 10px;
-    text-align: right;
     background-color: #6EB5C0;
     grid-area: 2/1/3/2;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+}
+
+.container two #Content2
+{
+    padding: 10px;
+    text-align: right;
+}
+
+.container two #Button2
+{
+    align-items:center;
 }
 
 .container three
 {
-    padding: 10px;
-    text-align: right;
     background-color: #6EB5C0;
     grid-area: 2/3/3/4;
     display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
+}
+
+.container three #Content3
+{
+    padding: 10px;
+    text-align: right;
+}
+
+.container three #Form3ID
+{
+    align-items: center;
 }
 
 .container four
 {
-    text-align: right;
     background-color:#6EB5C0;
     grid-area: 2/5/4/6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container four #Content4
+{
     padding: 10px;
+    text-align: right;
+}
+
+.container four #ShowBlock
+{
+    align-items: center;
+    background-color: #6EB5C0;
+    border: 0px;
     text-align: center;
 }
 
@@ -96,7 +131,7 @@
     grid-area: 4/6/5/7;   
 }
 
-.container #Git_Resp_1
+.container #ShowBlock
 {
     width: 100%;
     background-color: white;

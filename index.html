@@ -10,7 +10,7 @@
             <top id="First">
                 Здесь могла быть ваша реклама
                 <p>Input-></p><textarea name = "SortArea" id="SortArea" cols = 15 rows = "1"></textarea>
-                <button type="button" id="B2" name="B2"><b>Click</b></button>
+                <button type="button" id="B_Sort" name="B_Sort"><b>Click</b></button>
                 <x id = "x">
                     Работа — не волк, работа — это work!
                     Nulla a urna in nibh placerat mollis.
@@ -21,7 +21,7 @@
                 </x>
             </top>
             <two id="2">
-                <p id = "2Content">
+                <p id = "Content2">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Praesent ultricies condimentum nunc eget laoreet.
                     Suspendisse ut iaculis risus.
@@ -29,14 +29,16 @@
                     Sed et luctus arcu.
                     Quisque rhoncus pulvinar euismod.
                 </p>
+                <p id = "Button2"><button type="button" id="B_BlockChange" onclick="task_1()"><b>First Task</b></button></p>
             </two>
             <three id="3">
                 <form name = "Form3" id = "Form3ID">
-                    <p>Username: </p><textarea name="Edit_Area" id = "area_1" cols="15" rows="1"></textarea>
-                    <p>Repository: </p><textarea name="Edit_Area" id = "area_2" cols="15" rows="1"></textarea>
-                    <button type="button" id="B1"><b>Commit</b></button>
-                    <button type="button" id="B3"><b>Clear</b></button>
+                    <p>Username: </p><textarea id = "area_Name" cols="15" rows="1"></textarea>
+                    <p>Repository: </p><textarea id = "area_Rep" cols="15" rows="1"></textarea>
+                    <p><button type="button" id="B1"><b>Send</b></button>
+                    <button type="button" id="B3"><b>Retry</b></button></p>
                 </form>
+                <p id = "Content3">
                 Suspendisse mollis purus consectetur, laoreet purus id, luctus enim.
                 Vestibulum pharetra dictum dui vitae gravida.
                 Nulla a urna in nibh placerat mollis.
@@ -49,9 +51,10 @@
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Nam ullamcorper id velit ut convallis.
                 Curabitur in eleifend lorem.
+                </p>
             </three>
             <four id="four">
-                <p>
+                <p id = "Content4">
                 Sed gravida leo nec quam sollicitudin suscipit.
                 Quisque finibus dictum urna vel ultrices.
                 Nullam ultricies pellentesque hendrerit.
@@ -60,7 +63,7 @@
                 Curabitur at placerat erat, tristique bibendum nisi.
                 Nam non venenatis augue.
                 </p>
-                <p><textarea id="Git_Resp_1"></textarea></p>
+                <p><textarea id="ShowBlock" cols="30" readonly></textarea></p>
             </four>
             <five id="Five">
                 <img src = "var10.png">
