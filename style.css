@@ -636,27 +636,33 @@ span{
     height: 99%;
     font: small-caps bold 14px/1 sans-serif;
     overflow-x: hidden;
-    display: flex;
-    justify-content: flex-start;
-    align-items:flex-end;
 }
 
 #f40_main_b1{
     grid-area: b1;
     background-image: url('f40_main_b1.jpg');
     background-size:100% 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items:flex-end;
 }
 
 #f40_main_b2{
     grid-area: b2;
     background-image: url('f40_main_b2.jpg');
     background-size:100% 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items:flex-end;
 }
 
 #f40_main_b3{
     grid-area: b3;
     background-image: url('f40_main_b3.jpg');
     background-size:100% 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items:flex-end;
 }
 
 #sec20{
