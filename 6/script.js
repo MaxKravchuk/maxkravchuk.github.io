@@ -1,4 +1,4 @@
-function Valid()
+function Valid() //функція валідації форми
 {
     var f1 = document.getElementById("FormNameField").value;
     var f2 = document.getElementById("FormGrField").value;
@@ -21,7 +21,7 @@ function Valid()
 
 }
 
-function Show()
+function Show() //функція створення нового вікна з данми форми
 {
     var divright = document.getElementById("rightNewText");
 
@@ -71,7 +71,7 @@ function Show()
     }
 }
 
-function M_Over()
+function M_Over() //функція зміни кольору на рандомний
 {
     var children = document.getElementById("TrWhichINeed").childNodes;
 
@@ -84,7 +84,7 @@ function M_Over()
 
 
 
-function M_Click()
+function M_Click() //функція зміни кольору на вибраний з палітри
 {
     var children = document.getElementById("TrWhichINeed").childNodes;
     var color = document.getElementById("ColorSelection").value;
