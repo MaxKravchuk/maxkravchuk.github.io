@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Лабораторна робота 7 Кравчук Максим ІС-92 Варіант 50</title>
+        <script src="script.js"></script>
+        <link href = "style.css" rel = "stylesheet">
+    </head>
+    <body>
+        <h1>Замовлення меблів</h1>
+        <form name="form_1" method="post" action="form_action.php">
+            <table>
+                <tr>
+                    <td>Виріб </td>
+                    <td>
+                        <select id = "ObjSelection" name="object">
+                            <option value="empty"></option>
+                            <option value="wardrobe">Шафа</option>
+                            <option value="table">Стіл</option>
+                            <option value="cupboard">Сервант</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Матеріал </td>
+                    <td>
+                        <select id = "MatSelection" name="material">
+                            <option value="empty"></option>
+                            <option value="oak">Дуб</option>
+                            <option value="nut">Горіх</option>
+                            <option value="beech">Бук</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Кількість </td>
+                    <td><input type="text" name="amount" placeholder="Введіть кількість"></td>
+                </tr>
+            </table>
+            <input type="submit" onclick="check()">
+        </form>
+    </body>
+</html>
