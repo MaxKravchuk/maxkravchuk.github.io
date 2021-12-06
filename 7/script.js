@@ -32,17 +32,18 @@ function check()
 //функція підрахунку для 2го завдання
 function Count()
 {
+    if(document.form_2.deg.value=="") return
     var rad = (document.form_2.deg.value)*(Math.PI/180).toString();//отримання занчення кута та конвертування в радіани
     var func = document.form_2.angle.value;//визначення функції
     var result = eval("Math."+func+"("+rad+")");//формування розрахункового рядка та його подальший обрахунок в eval()
-    document.form_2.ans.value=result.toFixed(2);//формотоване виведення результату
+    document.getElementById("ans").innerHTML=func+"("+rad.toFixed(2)+")"+" = "+result.toFixed(2);//формотоване виведення результату
 }
 
 //функція перевірки відразу після зміни для 2го завдання
 function check1(fld)
 {
     var deg = fld.value;//отримання значення кута
-    if(deg < 0 || deg > 90 || deg=="")//перевірка кута
+    if(deg < 0 || deg > 90)//перевірка кута
     {
         alert("Кут повинен бути більше 0 та меньше 90");//повідомлення про помилку
         fld.select();
