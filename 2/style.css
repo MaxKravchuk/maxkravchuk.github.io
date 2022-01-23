@@ -1,0 +1,110 @@
+.box{ /*поле для майбутнього малюнку*/
+  position: relative;
+  margin: auto;
+  display: block;
+  margin-top: 8%;
+  width: 300px;
+  height: 300px;
+  background: none;
+}
+
+.rev{ /*головне коло*/
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  background: #A6BECF;
+  border-radius: 50%;
+}
+
+/*далі йде налаштування центрального та інших кіл*/
+.Centr{
+  position: absolute;
+  top: 29%;
+  left: 29%;
+  width: 42%;
+  height: 42%;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+.Top{
+  position: absolute;
+  top: -13%;
+  left: 37.5%;
+  width: 25%;
+  height: 25%;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+.Down{
+  position: absolute;
+  top: 85%;
+  left: 37.5%;
+  width: 25%;
+  height: 25%;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+.Left{
+  position: absolute;
+  top: 35%;
+  left: -11%;
+  width: 25%;
+  height: 25%;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+.Right{
+  position: absolute;
+  top: 35%;
+  left: 86%;
+  width: 25%;
+  height: 25%;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+.RTop{
+  position: absolute;
+  top: 1.5%;
+  left: 71.5%;
+  width: 25%;
+  height: 25%;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+.LTop{
+  position: absolute;
+  top: 1.5%;
+  left: 6.5;
+  width: 25%;
+  height: 25%;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+.LDown{
+  position: absolute;
+  top: 70%;
+  left: 1.5;
+  width: 25%;
+  height: 25%;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+.RDown{
+  position: absolute;
+  top: 70%;
+  left: 71.5%;
+  width: 25%;
+  height: 25%;
+  background: #ffffff;
+  border-radius: 50%;
+}

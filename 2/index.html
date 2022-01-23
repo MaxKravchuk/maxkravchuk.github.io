@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title> Кравчук М.О. Лаб_Робота 2 Варіант 10</title>
+        <meta charset="UTF-8">
+        <link href="style.css" rel="stylesheet" type="text/css">
+        <style> /*css для першого завдання*/
+            table
+            {
+                table-layout: fixed;
+                height: fixed;
+            }
+            #row1 /*Головний колір першого рядка*/
+            {
+                background-color:#ae5d9c;
+            }
+            #row1:hover /*Додатковий колір першого рядка*/
+            {
+                background-color: #CBE47A;
+            }
+            #row2 /*Головний колір другого рядка*/
+            {
+                background-color:#CBE47A;
+            }
+            #row2:hover /*Додатковий колір другого рядка*/
+            {
+                background-color: #ae5d9c
+            }
+            td
+            {
+                height: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <table width="100%" border="1"> <!--структура таблиці-->
+            <tr id = "row1">
+                <td></td>
+                <td></td>
+                <td colspan="2" rowspan="2">
+                    <p>Кравчук</p>
+                </td>
+                <td colspan="2">
+                    <p>Максим</p>
+                </td>
+                <td colspan="2" rowspan="2">
+                    <p>Олексійович</p>
+                </td>
+            </tr>
+            <tr id = "row2">
+                <td colspan="2">
+                    <p>ІС-92</p>
+                </td>
+                <td colspan="2">
+                    <p>Лр-2 Варіант 10</p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+                <td colspan="6"></td>
+            </tr>
+        </table>
+        <div class = "box"> <!--html частина 2го завдання-->
+            <div class = "rev">
+                <div class = "Centr"></div>
+                <div class = "Top"></div>
+                <div class = "Down"></div>
+                <div class = "LTop"></div>
+                <div class = "RTop"></div>
+                <div class = "LDown"></div>
+                <div class = "RDown"></div>
+                <div class = "Left"></div>
+                <div class = "Right"></div>
+            </div>
+        </div>
+    </body>
+</html>
